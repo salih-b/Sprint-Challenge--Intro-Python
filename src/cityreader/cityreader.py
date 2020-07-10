@@ -4,9 +4,13 @@
 
 class City:
   def __init__(self, name, lat, lon):
+    self.name = name
     self.lat = lat
     self.lon = lon
-    self.name = name
+
+
+  def __str__(self):
+        return f"{self.name}, {self.lat}, {self.lon}"
 
 
 
@@ -37,12 +41,15 @@ def cityreader(cities=[]):
 
     for row in reader:
       # print(row)
-      cities.append(City(*row))
+      name = row[0]
+      lat = float(row[3])
+      lon = float(row[4])
+      cities.append(City(name, lat, lon))
 
     return cities
 
 cityreader(cities)
-
+# print(f"this is cities--> {cities}")
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
