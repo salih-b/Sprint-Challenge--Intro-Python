@@ -2,6 +2,14 @@
 # fields for name, lat and lon (representing latitude and longitude).
 
 
+class City:
+  def __init__(self, name, lat, lon):
+    self.lat = lat
+    self.lon = lon
+    self.name = name
+
+
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -16,11 +24,17 @@
 # should not be loaded into a City object.
 cities = []
 
+
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+  import csv
+  with open('cities.csv')as f:
+    reader = csv.reader(f)
+    for row in reader:
+      print(row[0])
+
     return cities
 
 cityreader(cities)
