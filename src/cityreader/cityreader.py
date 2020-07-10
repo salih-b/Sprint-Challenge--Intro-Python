@@ -32,8 +32,12 @@ def cityreader(cities=[]):
   import csv
   with open('cities.csv')as f:
     reader = csv.reader(f)
+
+    next(reader)
+
     for row in reader:
-      print(row[0])
+      # print(row)
+      cities.append(City(*row))
 
     return cities
 
