@@ -23,49 +23,50 @@ humans = [
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
+# print(humans)
 print("Starts with D:")
-a = []
-print(a)
+a = [x.name for x in humans if x.name[0] == 'D']
+print(f'{a}\n')
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = []
-print(b)
+b = [x.name for x in humans if x.name[-1] == 'e']
+print(f'{b}\n')
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
-print(c)
+c = [x.name for x in humans if x.name[0] == 'C' or x.name[0] == 'D' or x.name[0] == 'E' or x.name[0] == 'F' or x.name[0] == 'G']
+print(f'{c}\n')
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [(x.age + 10) for x in humans ]
 print(d)
-
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = []
-print(e)
+e = [f"{x.name}-{x.age}" for x in humans]
+print(f'{e}\n')
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = []
-print(f)
-
+f = [tuple((x.name, x.age)) for x in humans if x.age >= 27 and x.age <= 32]
+print(f'{f}\n')
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = []
-print(g)
+g = [tuple((x.name.upper(), x.age + 5)) for x in humans]
+print(f'{g}\n')
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
-h = []
+h = [math.sqrt(x.age) for x in humans]
 print(h)
+
+print(f"\n this is humans --> {humans}")
